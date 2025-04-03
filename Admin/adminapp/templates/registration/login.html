@@ -1,0 +1,22 @@
+
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Custom login</title>
+    <link rel="stylesheet" href="{% static 'css/mylogin.css' %}">
+</head>
+<body class="login-body">
+<div class="login-container">
+    <h2>Django</h2>
+     <form method="post">
+            {% csrf_token %}
+            {{ form.username }}
+            {{ form.password }}
+            <button type="submit">Login</button>
+        </form>
+</div>
+
+</body>
+</html>
