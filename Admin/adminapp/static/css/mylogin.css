@@ -1,7 +1,7 @@
 body.login-body {
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI',  sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     height: 100vh;
     background: linear-gradient(135deg, #1f0036, #270062, #4e00a8);
     display: flex;
@@ -9,46 +9,51 @@ body.login-body {
     align-items: center;
     color: #fff;
     overflow: hidden;
-
 }
+
 .login-container {
-    background: rgba(255, 255, 255, 0, 0.5);
+    background: rgba(255, 255, 255, 0.2);
     padding: 40px;
     border-radius: 20px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3),
-                0 0 60px rgba(0, 0, 0, 0.3),
-                0 0 90px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
     text-align: center;
     width: 350px;
     backdrop-filter: blur(10px);
-
 }
 
 .login-container h2 {
     font-size: 2em;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     color: #fff;
+}
 
+form label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    font-size: 1em;
+    color: #fff;
 }
 
 form input {
     display: block;
     width: 100%;
     padding: 12px 15px;
-    margin: 150px;
+    margin: 10px 0;
     border: none;
     border-radius: 10px;
     font-size: 1em;
     color: #fff;
-    background: rgba(255, 255, 255, 0, 0.5);
+    background: rgba(255, 255, 255, 0.2);
     outline: none;
     transition: 0.3s ease;
 }
 
 form input:focus {
-    background: rgba(255, 255, 255, 0, 0.1);
-    box-shadow: 0 0 10px  #00f0ff;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 10px #00f0ff;
 }
+
 button {
     width: 100%;
     padding: 12px;
@@ -57,14 +62,12 @@ button {
     border-radius: 10px;
     font-size: 1em;
     color: #fff;
-    background: linear-gradient(90deg,  #6a00ff, #c200fb);
+    background: linear-gradient(90deg, #6a00ff, #c200fb);
     cursor: pointer;
     transition: all 0.3s ease;
 }
+
 button:hover {
-    box-shadow: 0 0 10px  #9c00ff, 0 0 30px  #00ffe7;
-    transform: scale(1.0.3);
-
-    }
+    box-shadow: 0 0 10px #9c00ff, 0 0 30px #00ffe7;
+    transform: scale(1.03);
 }
-

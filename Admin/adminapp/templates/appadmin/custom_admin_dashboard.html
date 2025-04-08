@@ -1,23 +1,24 @@
-<!--{% load static %}-->
+{% load static %}
 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-        <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gradient-to-br from-[#1f0036] via-[#2c005a] to-[#000c20] text-white min-h-screen p-8">
     <h1 class="text-3xl font-bold mb-6">🚀 Admin Dashboard</h1>
 
-    <div class="grid grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div class="bg-[#2c005a] rounded-2xl p-6 shadow-xl">
             <h2 class="text-lg font-semibold mb-2">Total Users</h2>
-            <p class="text-2xl font-bold">1,253</p>
+            <p class="text-2xl font-bold">{{ user_count|default:"1,253" }}</p>
         </div>
         <div class="bg-[#2c005a] rounded-2xl p-6 shadow-xl">
             <h2 class="text-lg font-semibold mb-2">Revenue</h2>
-            <p class="text-2xl font-bold">$12,590</p>
+            <p class="text-2xl font-bold">${{ total_payments|default:"12,590" }}</p>
         </div>
         <div class="bg-[#2c005a] rounded-2xl p-6 shadow-xl">
             <h2 class="text-lg font-semibold mb-2">Recent Activity</h2>
