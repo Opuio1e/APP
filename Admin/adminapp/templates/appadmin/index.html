@@ -11,17 +11,18 @@
     <aside class="sidebar">
         <div class="sidebar-header">⚡ Neon Admin</div>
         <ul class="nav-links">
-            <li><a href="#">Dashboard</a></li>
+            <li><a href="{% url 'custom_admin_dashboard' %}">Dashboard</a></li>
             <li><a href="#">Users</a></li>
             <li><a href="#">Authorization</a></li>
             <li><a href="#">Reports</a></li>
+            <li><a href="{% url 'logout' %}" style="color: #ff6b6b;">Logout</a></li>
         </ul>
     </aside>
-
 
     <main class="main-content">
         <header class="header">
             <h2>Admins Dashboard</h2>
+            <p>Welcome, {{ request.user.username }}</p>
         </header>
 
         <section class="cards">
@@ -38,14 +39,13 @@
                 <p>$1,253.40</p>
             </div>
             <div class="card pink">
-    <h3>Total Payments</h3>
-    <p>${{ total_payments }}</p>
-</div>
-<div class="card blue">
-    <h3>Active Users</h3>
-    <p>{{ user_count }} Users</p>
-</div>
-
+                <h3>Total Payments</h3>
+                <p>${{ total_payments }}</p>
+            </div>
+            <div class="card blue">
+                <h3>Active Users</h3>
+                <p>{{ user_count }} Users</p>
+            </div>
         </section>
 
         <section class="chart-section">

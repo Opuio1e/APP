@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Logged Out</title>
+    <link rel="stylesheet" href="{% static 'css/mylogin.css' %}">
+    <meta http-equiv="refresh" content="3;url={% url 'login' %}">
+</head>
+<body class="login-body">
+    <div class="login-container">
+        <h2>Logged Out</h2>
+        <p>You have been successfully logged out.</p>
+        <p>Redirecting to login page in 3 seconds...</p>
+        <p>
+            <a href="{% url 'login' %}" style="color: #00ffff; text-decoration: none;">Login again</a>
+        </p>
+    </div>
+</body>
+</html>

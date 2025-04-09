@@ -1,29 +1,42 @@
 {% load static %}
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
-    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gradient-to-br from-[#1f0036] via-[#2c005a] to-[#000c20] text-white min-h-screen p-8">
-    <h1 class="text-3xl font-bold mb-6">🚀 Admin Dashboard</h1>
+<body class="dashboard-body">
+    <aside class="sidebar">
+        <div class="sidebar-header">⚡ Neon Admin</div>
+        <ul class="nav-links">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Users</a></li>
+            <li><a href="#">Authorization</a></li>
+            <li><a href="#">Reports</a></li>
+        </ul>
+    </aside>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="bg-[#2c005a] rounded-2xl p-6 shadow-xl">
-            <h2 class="text-lg font-semibold mb-2">Total Users</h2>
-            <p class="text-2xl font-bold">{{ user_count|default:"1,253" }}</p>
-        </div>
-        <div class="bg-[#2c005a] rounded-2xl p-6 shadow-xl">
-            <h2 class="text-lg font-semibold mb-2">Revenue</h2>
-            <p class="text-2xl font-bold">${{ total_payments|default:"12,590" }}</p>
-        </div>
-        <div class="bg-[#2c005a] rounded-2xl p-6 shadow-xl">
-            <h2 class="text-lg font-semibold mb-2">Recent Activity</h2>
-            <p class="text-sm">User John registered 2 mins ago.</p>
-        </div>
-    </div>
+    <main class="main-content">
+        <header class="header">
+            <h2>Admin Dashboard</h2>
+        </header>
+
+        <section class="cards">
+            <div class="card pink">
+                <h3>Total Users</h3>
+                <p>{{ user_count }}</p>
+            </div>
+            <div class="card blue">
+                <h3>Revenue</h3>
+                <p>${{ total_payments }}</p>
+            </div>
+            <div class="card purple">
+                <h3>Recent Activity</h3>
+                <p>{{ recent_users.0.username }} joined recently</p>
+            </div>
+        </section>
+    </main>
 </body>
 </html>

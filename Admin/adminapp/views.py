@@ -1,3 +1,4 @@
+from django.contrib.auth import logout
 from django.contrib.auth.models import User
 from .models import Payment
 from django.contrib.admin.views.decorators import staff_member_required
@@ -7,17 +8,25 @@ from django.http import JsonResponse
 from .forms import CustomUserForm
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
+from django.urls import reverse
 
 
 def api_stats(request):
+    # Add sample data if no payments exist
+    if Payment.objects.count() == 0:
+        return JsonResponse({'values': [12, 19, 3, 5, 15]})
     values = list(Payment.objects.order_by('-timestamp').values_list('amount', flat=True)[:5])
     return JsonResponse({'values': values[::-1]})
 
 
 def home_view(request):
-    return HttpResponse("Welcome to the custom Django Admin!")
+    if request.user.is_authenticated:
+        if request.user.is_staff:
+            return redirect('custom_admin_dashboard')
+    return redirect('login')
 
 
+@login_required
 @staff_member_required
 def custom_admin_dashboard(request):
     user_count = User.objects.count()
@@ -35,8 +44,13 @@ def register_user(request):
     if request.method == 'POST':
         form = CustomUserForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('/admin/')
+            user = form.save()
+            return redirect('login')
     else:
         form = CustomUserForm()
     return render(request, 'registration/register.html', {'form': form})
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('login')
